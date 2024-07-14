@@ -87,7 +87,8 @@ int main(int argc, char* argv[]) {
   opts.add_options()("help", "Produce help message")(
       "help-debug", "Print help message for people working on rlvm")(
       "version", "Display version and license information")(
-      "font", po::value<string>(), "Specifies TrueType font to use.");
+      "font", po::value<string>(), "Specifies TrueType font to use.")(
+      "rlbabel-breaks-only", "Only use rlBabel line breaks.");
 
   po::options_description debugOpts("Debugging Options");
   debugOpts.add_options()(
@@ -215,6 +216,9 @@ int main(int argc, char* argv[]) {
 
   if (vm.count("font"))
     instance.set_custom_font(vm["font"].as<string>());
+
+  if (vm.count("rlbabel-breaks-only"))
+    instance.set_rlbabel_breaks_only();
 
   instance.Run(gamerootPath);
 

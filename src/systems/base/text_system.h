@@ -260,6 +260,14 @@ class TextSystem : public EventListener {
 
   void set_in_selection_mode(const bool in) { in_selection_mode_ = in; }
 
+  void SetRlBabelBreaksOnly() {
+    rlbabel_breaks_only_ = true;
+  }
+
+  bool GetRlBabelBreaksOnly() {
+    return rlbabel_breaks_only_;
+  }
+
   // Overridden from EventListener
   virtual bool MouseButtonStateChanged(MouseButton mouse_button,
                                        bool pressed) override;
@@ -346,6 +354,9 @@ class TextSystem : public EventListener {
 
   // Whether we are currently paused at a user choice.
   bool in_selection_mode_;
+
+  // Whether we should rely on rlBabel for line breaking.
+  bool rlbabel_breaks_only_;
 
   // Contains overrides for showing or hiding the text windows.
   std::map<int, bool> window_visual_override_;

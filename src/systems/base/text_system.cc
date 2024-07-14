@@ -117,6 +117,7 @@ TextSystem::TextSystem(System& system, Gameexe& gexe)
       skip_mode_(false),
       kidoku_read_(false),
       in_selection_mode_(false),
+      rlbabel_breaks_only_(false),
       system_(system) {
   GameexeInterpretObject ctrl_use(gexe("CTRL_USE"));
   if (ctrl_use.Exists())
@@ -801,6 +802,7 @@ void TextSystem::Reset() {
   system_visible_ = true;
   in_pause_state_ = false;
   in_selection_mode_ = false;
+  rlbabel_breaks_only_ = false;
   kidoku_read_ = false;
   skip_mode_ = false;
 }

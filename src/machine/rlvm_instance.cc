@@ -61,7 +61,8 @@ const char* siglus_exes[] = {"siglus.exe",       "siglusengine-ch.exe",
                              NULL};
 
 RLVMInstance::RLVMInstance()
-    : seen_start_(-1),
+    : rlbabel_breaks_only_(false),
+      seen_start_(-1),
       memory_(false),
       undefined_opcodes_(false),
       count_undefined_copcodes_(false),
@@ -123,6 +124,10 @@ void RLVMInstance::Run(const boost::filesystem::path& gamerootPath) {
           _("Could not find msgothic.ttc or a suitable fallback font."),
           _("Please place a copy of msgothic.ttc in either your home directory "
             "or in the game path."));
+    }
+
+    if (rlbabel_breaks_only_) {
+      sdlSystem.text().SetRlBabelBreaksOnly();
     }
 
     // Initialize our platform dialogs (we have to do this after

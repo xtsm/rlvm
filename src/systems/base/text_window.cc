@@ -553,7 +553,8 @@ bool TextWindow::DisplayCharacter(const std::string& current,
 
     // If the width of this glyph plus the spacing will put us over the
     // edge of the window, then line increment.
-    if (MustLineBreak(cur_codepoint, rest)) {
+    if (!text_system_.GetRlBabelBreaksOnly() &&
+        MustLineBreak(cur_codepoint, rest)) {
       HardBrake();
 
       if (IsFull())
