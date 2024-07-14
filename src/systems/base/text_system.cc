@@ -802,7 +802,6 @@ void TextSystem::Reset() {
   system_visible_ = true;
   in_pause_state_ = false;
   in_selection_mode_ = false;
-  rlbabel_breaks_only_ = false;
   kidoku_read_ = false;
   skip_mode_ = false;
 }
