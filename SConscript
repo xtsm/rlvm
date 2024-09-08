@@ -183,6 +183,7 @@ librlvm_files = [
   "src/utilities/exception.cc",
   "src/utilities/file.cc",
   "src/utilities/graphics.cc",
+  "src/utilities/log.cc",
   "src/utilities/string_utilities.cc",
   "src/utilities/date_util.cc",
   "src/utilities/find_font_file.cc",
