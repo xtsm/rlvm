@@ -135,7 +135,6 @@ size_t NextString(const char* src) {
         continue;
       }
       if (!((*end >= 0x81 && *end <= 0x9f) || (*end >= 0xe0 && *end <= 0xef) ||
-            (*end >= 'a' && *end <= 'z') ||
             (*end >= 'A' && *end <= 'Z') || (*end >= '0' && *end <= '9') ||
             *end == ' ' || *end == '?' || *end == '_' || *end == '"' ||
             *end == '\\')) {
